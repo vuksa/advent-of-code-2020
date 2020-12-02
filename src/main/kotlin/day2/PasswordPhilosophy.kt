@@ -25,9 +25,8 @@ class PositionalPasswordPolicy(
     override fun isValid(password: String): Boolean {
         val firstPos = letterPositions.first() - 1
         val secondPos = letterPositions[1] - 1
-        val isContainedInFirstPos = password[firstPos] == policyLetter
-        val isContainedInSecondPos = password[secondPos] == policyLetter
-        return if (isContainedInFirstPos) isContainedInSecondPos.not() else isContainedInSecondPos
+
+        return (password[firstPos] == policyLetter) xor (password[secondPos] == policyLetter)
     }
 }
 
