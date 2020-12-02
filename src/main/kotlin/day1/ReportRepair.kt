@@ -54,7 +54,7 @@ fun ExpenseReport.task2(): Int {
     return -1
 }
 
-fun loadExpenseReport(): ExpenseReport = ClassLoader.getSystemClassLoader().getResource("report-repair.txt")
+fun loadExpenseReport(): ExpenseReport = ClassLoader.getSystemClassLoader().getResource("day1-input.txt")
         ?.readText()
         ?.lines()
         ?.filter { it.isNotBlank() }
