@@ -37,7 +37,7 @@ fun task1(): Long {
 fun task2(): Long {
     val mapRows = loadMapRows()
 
-    val movementPairs = listOf(
+    val movements = listOf(
             Movement(1, 1),
             Movement(3, 1),
             Movement(5, 1),
@@ -45,7 +45,7 @@ fun task2(): Long {
             Movement(1, 2)
     )
 
-    return movementPairs.map { movement -> mapRows.traverseMap(movement) }
+    return movements.map { movement -> mapRows.traverseMap(movement) }
             .also { println(it) }
             .fold(1L) { threeCount, accProduct -> threeCount * accProduct }
 }
