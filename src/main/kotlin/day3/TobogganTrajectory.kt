@@ -46,11 +46,10 @@ fun task2(): Long {
     )
 
     return movements.map { movement -> mapRows.traverseMap(movement) }
-            .also { println(it) }
             .fold(1L) { threeCount, accProduct -> threeCount * accProduct }
 }
 
 fun main(args: Array<String>) {
-    task1()
-    task2()
+    println("Solution: ${task1()}")
+    println("Solution: ${task2()}")
 }
