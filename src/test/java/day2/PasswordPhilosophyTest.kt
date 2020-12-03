@@ -4,9 +4,10 @@ import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.CoreMatchers.equalTo
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.Test
+import readLinesFromResourceFile
 
 class PasswordPhilosophyTest {
-    private val passwordPhilosophy = PasswordPhilosophy(loadPasswordEntries())
+    private val passwordPhilosophy = PasswordPhilosophy(readLinesFromResourceFile("day2-input.txt"))
 
     @Test
     fun `should verify that task 1 solution has value 614`() {

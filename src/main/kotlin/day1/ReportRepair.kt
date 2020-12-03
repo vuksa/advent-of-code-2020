@@ -1,5 +1,7 @@
 package day1
 
+import readLinesFromResourceFile
+
 
 data class ExpenseReport(val expenses: List<Int>)
 
@@ -54,12 +56,10 @@ fun ExpenseReport.task2(): Int {
     return -1
 }
 
-fun loadExpenseReport(): ExpenseReport = ClassLoader.getSystemClassLoader().getResource("day1-input.txt")
-        ?.readText()
-        ?.lines()
-        ?.filter { it.isNotBlank() }
-        ?.mapNotNull { it.toIntOrNull() }
-        ?.let { ExpenseReport(it) } ?: error("")
+fun loadExpenseReport(): ExpenseReport = readLinesFromResourceFile("day1-input.txt")
+        .filter { it.isNotBlank() }
+        .mapNotNull { it.toIntOrNull() }
+        .let { ExpenseReport(it) }
 
 fun main(args: Array<String>) {
     val expenseReport = loadExpenseReport()

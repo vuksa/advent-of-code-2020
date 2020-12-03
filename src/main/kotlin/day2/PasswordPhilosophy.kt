@@ -1,5 +1,7 @@
 package day2
 
+import readLinesFromResourceFile
+
 data class Password(
         private val passwordPolicy: PasswordPolicy,
         private val password: String
@@ -67,14 +69,8 @@ class PasswordPhilosophy(private val passwordEntries: List<String>) {
     }
 }
 
-fun loadPasswordEntries(): List<String> {
-    return ClassLoader.getSystemClassLoader().getResource("day2-input.txt")
-            ?.readText()
-            ?.lines() ?: error("Unable to load password lines")
-}
-
 fun main(args: Array<String>) {
-    val passwordEntries = loadPasswordEntries()
+    val passwordEntries = readLinesFromResourceFile("day2-input.txt")
     val passwordPhilosophy = PasswordPhilosophy(passwordEntries)
 
     println("Task1: ${passwordPhilosophy.task1()}")
