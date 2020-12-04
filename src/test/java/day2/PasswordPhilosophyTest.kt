@@ -1,8 +1,6 @@
 package day2
 
-import org.hamcrest.CoreMatchers.`is`
-import org.hamcrest.CoreMatchers.equalTo
-import org.hamcrest.MatcherAssert.assertThat
+import `should be result of`
 import org.junit.Test
 import readLinesFromResourceFile
 
@@ -11,11 +9,11 @@ class PasswordPhilosophyTest {
 
     @Test
     fun `should verify that task 1 solution has value 614`() {
-        assertThat(614, `is`(equalTo(passwordPhilosophy.task1())))
+        614 `should be result of` { passwordPhilosophy.task1() }
     }
 
     @Test
     fun `should verify that task 2 solution has value 354`() {
-        assertThat(354, `is`(equalTo(passwordPhilosophy.task2())))
+        354 `should be result of` { passwordPhilosophy.task2() }
     }
 }
