@@ -18,10 +18,10 @@ fun task1(input: List<BoardingPassCode>): Int {
 fun task2(input: List<BoardingPassCode>): Int {
     val seatIdsWithoutMyId = input.scanBoardingPassCodesForSeatIds()
 
-    val lowestSeatId = seatIdsWithoutMyId.min() ?: error("Unable to find start seatId")
-    val heighestSeatId = seatIdsWithoutMyId.max() ?: error("Unable to find end seatId")
+    val lowestSeatId = seatIdsWithoutMyId.min() ?: error("Unable to find lowest seatId")
+    val highestSeatId = seatIdsWithoutMyId.max() ?: error("Unable to find highest seatId")
 
-    val allSeatIdsSum = (heighestSeatId - lowestSeatId + 1) * (heighestSeatId + lowestSeatId) / 2
+    val allSeatIdsSum = (highestSeatId - lowestSeatId + 1) * (highestSeatId + lowestSeatId) / 2
 
     return allSeatIdsSum - seatIdsWithoutMyId.sum()
 }
@@ -39,16 +39,16 @@ fun List<BoardingPassCode>.scanBoardingPassCodesForSeatIds(): List<SeatId> = thi
     return@map row * 8 + column
 }
 
-private fun findRowFor(passportRowCode: String): Int {
-    require(passportRowCode.length == 7)
+private fun findRowFor(boardingPassRowCode: String): Int {
+    require(boardingPassRowCode.length == 7)
 
-    return searchForValue(passportRowCode, 0, 127)
+    return searchForValue(boardingPassRowCode, 0, 127)
 }
 
-private fun findColumnFor(passportColumnCode: String): Int {
-    require(passportColumnCode.length == 3)
+private fun findColumnFor(boardingPassColumnCode: String): Int {
+    require(boardingPassColumnCode.length == 3)
 
-    return searchForValue(passportColumnCode, 0, 7)
+    return searchForValue(boardingPassColumnCode, 0, 7)
 }
 
 private fun searchForValue(code: String, min: Int, max: Int): Int {
