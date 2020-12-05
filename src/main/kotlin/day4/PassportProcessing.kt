@@ -159,5 +159,4 @@ fun main(args: Array<String>) {
     
     println("Task1 solution: ${task1(passports)}")
     println("Task1 solution: ${task2(passports)}")
-
 }
