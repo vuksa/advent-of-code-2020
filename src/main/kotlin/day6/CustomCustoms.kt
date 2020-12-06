@@ -28,10 +28,8 @@ fun task2(input: List<String>): Int {
     val answersOfAllPersonsInGroup: List<List<String>> = input.takeNextGroup()
             .parseIndividualAnswers()
 
-    var uniqueAnswersThatEveryoneAnswered: Set<String> = answersOfAllPersonsInGroup.first().toSet()
-    for (index in 1 until answersOfAllPersonsInGroup.size) {
-        uniqueAnswersThatEveryoneAnswered = uniqueAnswersThatEveryoneAnswered.intersect(answersOfAllPersonsInGroup[index])
-    }
+    val uniqueAnswersThatEveryoneAnswered: Set<String> = answersOfAllPersonsInGroup
+            .fold(answersOfAllPersonsInGroup.first().toSet()) { currentAnswers, acc -> currentAnswers.intersect(acc) }
 
     return uniqueAnswersThatEveryoneAnswered.count() + task2(input.drop(answersOfAllPersonsInGroup.size + 1))
 }
