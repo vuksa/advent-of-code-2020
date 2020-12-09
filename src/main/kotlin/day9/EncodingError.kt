@@ -63,20 +63,20 @@ fun task2(numbers: List<Long>): Long {
 private fun Long.isSumOfNumbersIn(preambleNumbers: LinkedList<Long>): Boolean {
     val desiredSum = this
 
-    val sortedExpenses = preambleNumbers.sorted()
+    val sortedNumbers = preambleNumbers.sorted()
 
     var left = 0
-    var right = sortedExpenses.lastIndex
+    var right = sortedNumbers.lastIndex
 
     while (left < right) {
-        val expense = sortedExpenses[left]
-        val otherExpense = sortedExpenses[right]
+        val number = sortedNumbers[left]
+        val otherNumber = sortedNumbers[right]
 
-        val expenseSum = expense + otherExpense
+        val sum = number + otherNumber
 
         when {
-            expenseSum == desiredSum -> return true
-            expenseSum < desiredSum -> left++
+            sum == desiredSum -> return true
+            sum < desiredSum -> left++
             else -> right--
         }
     }
