@@ -27,9 +27,9 @@ fun task2(input: List<String>): Long {
             .map { it.trim().toInt() }
             .sorted()
             .let { sortedJolts ->
-                val deviceJoltage = sortedJolts.max() ?: error("Unable to determine device joltage")
+                val deviceJoltage = sortedJolts.max()!! + 3
 
-                return@let listOf(0) + sortedJolts + deviceJoltage
+                return@let listOf(0) + sortedJolts + deviceJoltage + 3
             }.zipWithNext()
             .map { it.second - it.first }
 
