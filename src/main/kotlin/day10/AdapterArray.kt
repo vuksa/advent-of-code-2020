@@ -29,7 +29,7 @@ fun task2(input: List<String>): Long {
             .let { sortedJolts ->
                 val deviceJoltage = sortedJolts.max()!! + 3
 
-                return@let listOf(0) + sortedJolts + deviceJoltage + 3
+                return@let listOf(0) + sortedJolts + deviceJoltage
             }.zipWithNext()
             .map { it.second - it.first }
 
