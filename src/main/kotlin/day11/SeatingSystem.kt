@@ -16,9 +16,9 @@ fun task1(input: List<String>): Int {
 }
 
 fun task2(input: List<String>): Int {
-    val roomTransformer = Task2RoomTransformationRule()
+    val roomTransformationRule = Task2RoomTransformationRule()
 
-    return solve(input, roomTransformer)
+    return solve(input, roomTransformationRule)
 }
 
 private fun solve(input: List<String>, roomTransformationRule: RoomTransformationRule): Int {
