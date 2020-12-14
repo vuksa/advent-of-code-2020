@@ -53,8 +53,6 @@ fun task1(input: List<String>): Int {
                 }
             }
         }
-        println(instruction)
-        println("Direction: $currentDirection, movement: (North:$shipNorth, East:$shipEast)")
     }
 
     return abs(shipEast) + abs(shipNorth)
